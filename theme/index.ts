@@ -9,12 +9,13 @@ import { extendTheme } from '@chakra-ui/react';
 
 // Component style overrides
 import Button from './components/button';
-import { config, colors } from './foundations';
+import { config, colors, fonts, fontWeights } from './foundations';
 
 const overrides = {
-  // Other foundational style overrides go here
   config,
   colors,
+  fonts,
+  fontWeights,
   components: {
     Button,
   },

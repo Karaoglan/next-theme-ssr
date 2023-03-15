@@ -1,18 +1,14 @@
-'use client';
-import { CustomCard } from '@/components/custom-card';
-import { useEffect } from 'react';
+import { Person } from '../../type';
 
-/*import { Box, Text } from "@chakra-ui/react";
-<Box w={20} h={20} bg="secondary">
-      <Text color={'white'}>SELAMLAR</Text>
-    </Box>*/
+async function getPeople(): Promise<Person[]> {
+  const url = `${process.env.NEXT_PUBLIC_API_BASE}/api/people`;
+  const response = await fetch(url);
+
+  return response.json();
+}
 
 export default async function Page() {
-  useEffect(() => {
-    fetch('/api/people')
-      .then((res) => res.json())
-      .then(console.log);
-  }, []);
+  const people = await getPeople();
 
-  return (<div>SELAMLARE</div>);
+  return <div>SELAMLAR - {JSON.stringify(people)}</div>;
 }
