@@ -17,7 +17,8 @@
     "paths": {
       "@/components/*": ["./components/*"],
       "@/theme/*": ["./theme/*"],
-      "@/type/*": ["./type/*"]
+      "@/hooks/*": ["./hooks/*"],
+      "@/*": ["./*"]
     },
     "plugins": [
       {

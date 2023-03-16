@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/hanconcept.iml" filepath="$PROJECT_DIR$/.idea/hanconcept.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/next-theme-ssr.iml" filepath="$PROJECT_DIR$/.idea/next-theme-ssr.iml" />
     </modules>
   </component>
 </project>

@@ -1,5 +1,6 @@
-import { NextResponse } from 'next/server';
-import { Person } from '../../../type';
+import { NextApiRequest } from 'next';
+import { NextRequest, NextResponse } from 'next/server';
+import { Person } from '@/type';
 
 const PEOPLE: Person[] = [
   {
@@ -13,6 +14,10 @@ const PEOPLE: Person[] = [
   },
 ];
 
-export async function GET() {
-  return NextResponse.json(PEOPLE);
+export async function GET(req: NextRequest) {
+  return NextResponse.json(
+    PEOPLE.filter((person) =>
+      person.firstName.startsWith(req.nextUrl.searchParams?.get('q') || '')
+    )
+  );
 }

@@ -1,4 +1,4 @@
-import { Person } from '../../type';
+import { Person } from '@/type';
 
 async function getPeople(): Promise<Person[]> {
   const url = `${process.env.NEXT_PUBLIC_API_BASE}/api/people`;
