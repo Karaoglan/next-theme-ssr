@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Stack, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Stack, Text, useColorMode } from '@chakra-ui/react';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Logo } from './Logo';
@@ -6,6 +6,7 @@ import { Searchbar } from './Searchbar';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { colorMode, toggleColorMode } = useColorMode();
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -15,6 +16,11 @@ export const Navbar = () => {
         w="100px"
         color={['white', 'white', 'primary.500', 'primary.500']}
       />
+
+      <Button onClick={toggleColorMode}>
+        Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
+      </Button>
+
       <MenuToggle toggle={toggle} isOpen={isOpen} />
       <MenuLinks isOpen={isOpen} />
     </NavBarContainer>

@@ -1,11 +1,11 @@
 'use client';
-import '../styles/reset.css';
-import { ChakraProvider } from '@chakra-ui/react';
+import '@/styles/reset.css';
+import { Box, ChakraProvider } from '@chakra-ui/react';
 import { CacheProvider } from '@chakra-ui/next-js';
 import extendTheme from '@/theme/index';
 import { Navbar } from '@/components/Navbar';
 import { useState } from 'react';
-import { AppContext } from '../context/context';
+import { AppContext } from '@/context/context';
 
 export default function RootLayout({
   children,
@@ -20,8 +20,10 @@ export default function RootLayout({
         <CacheProvider>
           <ChakraProvider theme={extendTheme}>
             <AppContext.Provider value={{ termContext, setTermContext }}>
-              <Navbar />
-              {children}
+              <Box bg={'blue.900'}>
+                <Navbar />
+              </Box>
+              <Box bg={'blue.100'}>{children}</Box>
             </AppContext.Provider>
           </ChakraProvider>
         </CacheProvider>

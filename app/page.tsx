@@ -2,14 +2,14 @@
 import { HanButton } from '@/components/HanButton';
 import { HanCard } from '@/components/HanCard';
 import { Link } from '@chakra-ui/next-js';
-import { Button, Center, Divider, useColorMode } from '@chakra-ui/react';
+import { Button, Center, Divider, Text, useColorMode } from '@chakra-ui/react';
 import { useContext, useEffect, useState } from 'react';
-import { AppContext } from '../context/context';
-import { Person } from '@/type';
 
-export default async function Page() {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const [people, setPeople] = useState([]);
+import { Person } from '@/type';
+import { AppContext } from '@/context/context';
+
+export default function Page() {
+  const [people, setPeople] = useState<Person[]>([]);
 
   const context = useContext(AppContext);
 
@@ -35,21 +35,18 @@ export default async function Page() {
 
   return (
     <section>
-      <nav>
-        <Button onClick={toggleColorMode}>
-          Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
-        </Button>
-      </nav>
+      {people.map((person, i) => (
+        <Center key={i}>
+          <Text>
+            {person.firstName}-{person.lastName}
+          </Text>
+        </Center>
+      ))}
       <Center>
         <Link href="/people" color="blue.400" _hover={{ color: 'blue.500' }}>
           PEOPLE
         </Link>
       </Center>
-      {people ? (
-        people.map((p: Person) => <div key={p.firstName}>{p.firstName}</div>)
-      ) : (
-        <></>
-      )}
       <HanCard />
       <Divider />
       <Center>

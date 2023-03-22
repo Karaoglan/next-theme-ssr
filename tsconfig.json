@@ -15,9 +15,6 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/components/*": ["./components/*"],
-      "@/theme/*": ["./theme/*"],
-      "@/hooks/*": ["./hooks/*"],
       "@/*": ["./*"]
     },
     "plugins": [

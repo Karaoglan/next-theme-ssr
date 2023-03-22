@@ -9,6 +9,15 @@ async function getPeople(): Promise<Person[]> {
 
 export default async function Page() {
   const people = await getPeople();
+  console.log('P', people);
 
-  return <div>SELAMLAR - {JSON.stringify(people)}</div>;
+  return (
+    <div>
+      {people.map((person, i) => (
+        <div className="" key={i}>
+          {person.firstName}-{person.lastName}
+        </div>
+      ))}
+    </div>
+  );
 }
