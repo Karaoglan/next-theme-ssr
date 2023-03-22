@@ -14,7 +14,7 @@ export default async function Page() {
   return (
     <div>
       {people.map((person, i) => (
-        <div className="" key={i}>
+        <div className="text-3xl text-green-600 p-4" key={i}>
           {person.firstName}-{person.lastName}
         </div>
       ))}
