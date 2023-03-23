@@ -11,7 +11,7 @@ import { AppContext } from '@/context/context';
 export default function Page() {
   const [people, setPeople] = useState<Person[]>([]);
 
-  const context = useContext(AppContext);
+  const { searchTerm } = useContext(AppContext);
 
   console.log('ENV???', process.env.NEXT_PUBLIC_NAME);
   const url = `${process.env.NEXT_PUBLIC_API_BASE}/api/people`;
@@ -26,12 +26,12 @@ export default function Page() {
       return people.json();
     };
 
-    if (context.termContext) {
-      search(context.termContext)
+    if (searchTerm) {
+      search(searchTerm)
         .then((peop) => setPeople(peop))
         .catch(console.error);
     }
-  }, [context.termContext]);
+  }, [searchTerm]);
 
   return (
     <section>

@@ -6,11 +6,11 @@ import { useContext, useEffect, useState } from 'react';
 export const Searchbar = () => {
   const [term, setTerm] = useState('');
   const debouncedSearch = useDebounce({ value: term, delay: 500 });
-  const context = useContext(AppContext);
+  const { searchTerm, setSearchTerm } = useContext(AppContext);
 
   useEffect(() => {
-    if (debouncedSearch) {
-      context.setTermContext(debouncedSearch);
+    if (debouncedSearch && setSearchTerm) {
+      setSearchTerm(debouncedSearch);
     }
   }, [debouncedSearch]);
 

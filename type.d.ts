@@ -12,3 +12,8 @@ export type Person = {
   lastName: string;
   nickname?: string;
 };
+
+export interface ISearchTermContext {
+  searchTerm: string;
+  setSearchTerm?: (e: any) => void;
+}

@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
 import { Person } from '@/type';
+import { NextRequest, NextResponse } from 'next/server';
 
 const PEOPLE: Person[] = [
   {
